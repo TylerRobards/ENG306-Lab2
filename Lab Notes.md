@@ -42,22 +42,21 @@ $$V_{pp}=2.35V$$
 ## 3.2 - Semi-Converter with Resistive and Inductive Load
 
 | Firing angle (α) | Digital multimeter Vₒ | Digital multimeter Iₒ | Calculated Vₒ |
-|------------------|------------------------|------------------------|----------------|
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
-|                  |                        |                        |                |
+|------------------|-----------------------|-----------------------|---------------|
+| 0                | 0                     | 0                     |               |
+| 20               | 0.8                   | 0.8                   |               |
+| 45               | 3.4                   | 20                    |               |
+| 60               | 5.6                   | 63                    |               |
+| 90               | 9.7                   | 159                   |               |
+| 100              | 10.2                  | 184                   |               |
+| 120              | 10.9                  | 247                   |               |
+| 140              | 10.6                  | 285                   |               |
+| 160              | 9.5                   | 317                   |               |
+| 180              | 8.8                   | 333                   |               |
 
-###
-###
-###
-###
-###
-###
+/Detail the way you connected your oscilloscope probes and configured the oscilloscope to record simultaneously the source voltage, trigger signal, output voltage and current waveforms/
+We made our commoon point where the + v_out is. Ch1 is the secondary transformer output. Ch2 is at the bottom of v_out. Ch3 is between 1\Omega and 47\Omega. Ch4 is + trigger input.
+
+/Based on your observation, at what firing angle did you observe there to first be a boundary between continuous and discontinuous conduction (of current in the load). Compare to what you might expect from a theoretical view point?/
+$100^o$
 
