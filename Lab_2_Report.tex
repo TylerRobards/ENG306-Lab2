@@ -6,6 +6,9 @@
 \graphicspath{{/home/tyler/Pictures/}} % Path to image folder
 \geometry{margin=2cm}
 \setlength{\parindent}{0pt} % No indentation
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
 
 \begin{document}
 \begin{center}
@@ -71,13 +74,33 @@ particular on the harmonic content? Describe why you expect this?
 components of supply current for your circuit, thus gaining extra insight}\\
 \section{Thyristor Controller Rectifiers}
 \subsection{Semi-Converter with Resitive and Inductive Load}
-\textit{Detail the way you connected your oscilloscope probes and configured the oscilloscope to record
-simultaneously the source voltage, trigger signal, output voltage and current waveforms.}\\
+\begin{center}
+\begin{tabular}{|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\centering\textbf{Firing angle} &
+\multicolumn{2}{c|}{\textbf{Digital multimeter}} &
+\centering\textbf{Calculated} \tabularnewline
+\hline
+\centering$\alpha$ & \centering$V_o$ & \centering$I_o$ & \centering$V_o$ \tabularnewline
+\hline
+0 & 0 & 0 & \\ \hline
+20 & 0.8 & 0.8 & \\ \hline
+45 & 3.4 & 20 & \\ \hline
+60 & 5.6 & 63 & \\ \hline
+90 & 9.7 & 159 & \\ \hline
+100 & 10.2 & 184 & \\ \hline
+120 & 10.9 & 247 & \\ \hline
+140 & 10.6 & 285 & \\ \hline
+160 & 9.5 & 317 & \\ \hline
+180 & 8.8 & 333 & \\ \hline
+\end{tabular}
+\end{center}\\
+\textit{Detail the way you connected your oscilloscope probes and configured the oscilloscope to record simultaneously the source voltage, trigger signal, output voltage and current waveforms.}\\\\
+The common ground is at $+V_o$ to allow for common measurments. Channel 1 measures the source voltage using the secondary transformer winding. This is acceplatble as it is electrlcally isolated from the remainder of the circuit so multiple grounds cannot cause a short circuit. Channel 2 measure the output voltage, with it's positive probe placed at $-V_o$. Channel 3 measures $I_o$, with it's probe placed between the $1\Omega$ and $47\Omega$ resistors. Measuring the voltage over the $1\Omega$ resistor is equivalent to measuring current as $V=IR$. Channel 4 measures the positive trigger input of $T_1$. \\\\ 
+\textit{Include plot from oscilloscope of all waveforms for a firing angle of 45°.}\\\\
+TODO: Add plot.\\\\
 
-\textit{Include plot from oscilloscope of all waveforms for a firing angle of 45°.}\\
-
-\textit{Comment on the observed waveforms and on how they changed with firing angle, describing your
-observations by considering theory of the circuit operation.}\\
+\textit{Comment on the observed waveforms and on how they changed with firing angle, describing your observations by considering theory of the circuit operation.}\\\\
 
 \textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot
 a curve based on theoretical considerations for this circuit. Discuss your findings}\\

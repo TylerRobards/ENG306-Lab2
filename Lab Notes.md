@@ -1,3 +1,9 @@
+---
+id: Lab Notes
+aliases: []
+tags: []
+---
+
 # 28-08-2025
 # Data for Lab 2
 # 1 - 
@@ -45,7 +51,7 @@ $$V_{pp}=2.35V$$
 
 ### Detail the way you connected your oscilloscope probes and configured the oscilloscope to record simultaneously the source voltage, trigger signal, output voltage and current waveforms
 
-We made our commoon point where the + $v_out$ is. Ch1 is the secondary transformer output. Ch2 is at the bottom of $v_out$. Ch3 is between $1\Omega$ and $47\Omega$. Ch4 is + trigger input.
+We made our commoon point where the + $v_o$ is. Ch1 is the secondary transformer output. Ch2 is at the bottom of $v_out$. Ch3 is between $1\Omega$ and $47\Omega$. Ch4 is + trigger input.
 
 ### Based on your observation, at what firing angle did you observe there to first be a boundary between continuous and discontinuous conduction (of current in the load). Compare to what you might expect from a theoretical view point?
 
