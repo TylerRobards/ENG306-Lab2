@@ -124,18 +124,24 @@ components of supply current for your circuit, thus gaining extra insight}\\
 \hline
 \centering$\alpha$ & \centering$V_o(V)$ & \centering$I_o(mA)$ & \centering$V_o(V)$ \tabularnewline
 \hline
-0 & 0 & 0 & \\ \hline
-20 & 0.8 & 0.8 & \\ \hline
-45 & 3.4 & 20 & \\ \hline
-60 & 5.6 & 63 & \\ \hline
-90 & 9.7 & 159 & \\ \hline
-100 & 10.2 & 184 & \\ \hline
-120 & 10.9 & 247 & \\ \hline
-140 & 10.6 & 285 & \\ \hline
-160 & 9.5 & 317 & \\ \hline
-180 & 8.8 & 333 & \\ \hline
+0 & 0 & 0 & 0 \\ \hline
+20 & 0.8 & 0.8 & 0.384 \\ \hline
+45 & 3.4 & 20 & 1.865 \\ \hline
+60 & 5.6 & 63 & 3.183 \\ \hline
+90 & 9.7 & 159 & 6.366 \\ \hline
+100 & 10.2 & 184 & 7.471 \\ \hline
+120 & 10.9 & 247 & 9.549 \\ \hline
+140 & 10.6 & 285 & 11.243 \\ \hline
+160 & 9.5 & 317 & 12.348 \\ \hline
+180 & 8.8 & 333 & 12.732 \\ \hline
 \end{tabular}
 \end{center}\\
+To calculate $V_o$ use the formula,
+$$V_{o,theory}=K(1-cos(\alpha))$$
+where,\\
+$$K=\dfrac{V_m}{\pi}=6.366V$$\\
+These results can be seen in the table above.\\
+
 \textit{Detail the way you connected your oscilloscope probes and configured the oscilloscope to record simultaneously the source voltage, trigger signal, output voltage and current waveforms.}\\
 
 The common ground is at $+V_o$ to allow for common measurements. Channel 1 measures the source voltage using the secondary transformer winding. This is acceptable as it is electrically isolated from the remainder of the circuit so multiple grounds cannot cause a short circuit. Channel 2 measure the output voltage, with it's positive probe placed at $-V_o$. Channel 3 measures $I_o$, with it's probe placed between the $1\Omega$ and $47\Omega$ resistors. Measuring the voltage over the $1\Omega$ resistor is equivalent to measuring current as $V=IR$. Channel 4 measures the positive trigger input of $T_1$. \\ 
@@ -154,9 +160,16 @@ Channel 2 and Channel 3 show the negative output voltage and output current resp
 
 As the firing angle is increased to $180\degree$ the output voltage and current approach the full wave rectified input waveform shown by Channel 1. This is beaus at a firing angle of $180\degree$ the thyristor acts the same as a typical diode used in a full wave rectifier.\\
 
-\textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings}\\
+\textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings.}\\
 
-TODO: This section seems hard\\
+\begin{figure}[H]
+        \centering
+	\includegraphics[width=0.7\columnwidth]{Images/semi_converter_correct.png}
+	\caption{Output Voltage vs Firing Angle}
+	\label{fig:output voltage vs firing angle}
+\end{figure}
+
+The theoretical curve $V_{dc}=K(1-\mathrm{cos}\:\alpha)$ matches the measured results with an acceptable error. At a small firing angle the deviations are caused by discontinuous current. The error at higher firing angles may be attributed to residual conduction in the load. There may also be isomer error caused by the non-idealities in the lab configurations.\\
 
 \textit{Based on your observation, at what firing angle did you observe there to first be a boundary between continuous and discontinuous conduction (of current in the load). Compare to what you might expect from a theoretical view point?}\\
 

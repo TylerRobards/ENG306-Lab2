@@ -1,0 +1,42 @@
+% semi_converter_plot_clean.m
+% Plot measured DC output voltage vs firing angle for a semi-converter
+% Only keep the correct theoretical model (1 - cos(alpha)).
+
+clear; clc;
+
+% ── Measured data ──────────────────────────────────────────────
+alpha_deg = [0 20 45 60 90 100 120 140 160 180];  % firing angle (deg)
+V_meas    = [0 0.8 3.4 5.6 9.7 10.2 10.9 10.6 9.5 8.8]; % measured Vo (V)
+
+% ── Theoretical fit: Vdc = K*(1 - cos(alpha)) ──────────────────
+a = deg2rad(alpha_deg);
+x = 1 - cos(a);
+
+% Least squares fit for K
+K = (x * V_meas.') / (x * x.');
+V_th = K * x;
+
+% Smooth curve for plotting
+alpha_fine = linspace(0,180,720);
+af = deg2rad(alpha_fine);
+V_th_fine = K * (1 - cos(af));
+
+% RMSE
+rmse = sqrt(mean((V_th - V_meas).^2));
+
+% ── Plot ───────────────────────────────────────────────────────
+figure('Color','w'); hold on; grid on;
+plot(alpha_deg, V_meas, 'o', 'MarkerSize', 7, 'LineWidth', 1.5);
+plot(alpha_fine, V_th_fine, 'r-', 'LineWidth', 1.6);
+
+legend('Measured V_o', sprintf(['Theoretical V_o'], rmse), ...
+    'Location','best');
+
+xlabel('Firing angle \alpha (degrees)');
+ylabel('DC output voltage V_{o,avg} (V)');
+title('Semi-Converter: V_{o,avg} vs. Firing Angle (\alpha)');
+xlim([0 180]);
+
+% Save plot
+exportgraphics(gca,'semi_converter_correct.png','Resolution',300);
+fprintf('Figure saved as semi_converter_correct.png\n');
