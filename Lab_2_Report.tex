@@ -10,6 +10,7 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage[none]{hyphenat} % Disable Hypens splitting words across lines
+\usepackage{gensymb} 
 
 \begin{document}
 \begin{center}
@@ -63,7 +64,7 @@ How do they compare to the values measured for the resistive load only and why?}
 \textit{By considering losses in the four diodes, estimate your overall rectifier circuit efficiency. Note: there
 are a few approaches you can take here, some which may require you to think about and perform
 some more measurements in the lab.}\\
-\subsection{Full-Wave Rectifier with Capactive Output Filter and Resistive Load}
+\subsection{Full-Wave Rectifier with Capacitive Output Filter and Resistive Load}
 \textit{Tabulate, to allow for easy comparison, your measured dc output voltage and peak-to-peak ripple for each of the three capacitors values}\\\\
 
 \begin{center}
@@ -87,19 +88,19 @@ TODO: Comments on the plots
 \begin{figure}[H]
         \centering
 	\includegraphics[width=0.7\columnwidth]{Images/20250828_134829.jpg}
-	\caption{$470F$ Capacitor Plot}
+	\caption{$470\:F$ Capacitor Plot}
 	\label{fig:470F Cap Plot}
 \end{figure}
 \begin{figure}[H]
         \centering
 	\includegraphics[width=0.7\columnwidth]{Images/20250828_135102.jpg}
-	\caption{$1000$ Capacitor Plot}
+	\caption{$1000\:F$ Capacitor Plot}
 	\label{fig:1000F Cap Plot}
 \end{figure}
 \begin{figure}[H]
         \centering
 	\includegraphics[width=0.7\columnwidth]{Images/20250828_135318.jpg}
-	\caption{$2000$ Capacitor Plot}
+	\caption{$2000\:F$ Capacitor Plot}
 	\label{fig:2000F Cap Plot}
 \end{figure}
 
@@ -113,7 +114,7 @@ particular on the harmonic content? Describe why you expect this?
 (Note: if you have time you may wish to think of a way to measure and display the Fourier
 components of supply current for your circuit, thus gaining extra insight}\\
 \section{Thyristor Controller Rectifiers}
-\subsection{Semi-Converter with Resitive and Inductive Load}
+\subsection{Semi-Converter with Resistive and Inductive Load}
 \begin{center}
 \begin{tabular}{|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
 \hline
@@ -121,7 +122,7 @@ components of supply current for your circuit, thus gaining extra insight}\\
 \multicolumn{2}{c|}{\textbf{Digital multimeter}} &
 \centering\textbf{Calculated} \tabularnewline
 \hline
-\centering$\alpha$ & \centering$V_o$ & \centering$I_o$ & \centering$V_o$ \tabularnewline
+\centering$\alpha$ & \centering$V_o(V)$ & \centering$I_o(mA)$ & \centering$V_o(V)$ \tabularnewline
 \hline
 0 & 0 & 0 & \\ \hline
 20 & 0.8 & 0.8 & \\ \hline
@@ -135,22 +136,34 @@ components of supply current for your circuit, thus gaining extra insight}\\
 180 & 8.8 & 333 & \\ \hline
 \end{tabular}
 \end{center}\\
-\textit{Detail the way you connected your oscilloscope probes and configured the oscilloscope to record simultaneously the source voltage, trigger signal, output voltage and current waveforms.}\\\\
+\textit{Detail the way you connected your oscilloscope probes and configured the oscilloscope to record simultaneously the source voltage, trigger signal, output voltage and current waveforms.}\\
 
-The common ground is at $+V_o$ to allow for common measurments. Channel 1 measures the source voltage using the secondary transformer winding. This is acceplatble as it is electrlcally isolated from the remainder of the circuit so multiple grounds cannot cause a short circuit. Channel 2 measure the output voltage, with it's positive probe placed at $-V_o$. Channel 3 measures $I_o$, with it's probe placed between the $1\Omega$ and $47\Omega$ resistors. Measuring the voltage over the $1\Omega$ resistor is equivalent to measuring current as $V=IR$. Channel 4 measures the positive trigger input of $T_1$. \\\\ 
+The common ground is at $+V_o$ to allow for common measurements. Channel 1 measures the source voltage using the secondary transformer winding. This is acceptable as it is electrically isolated from the remainder of the circuit so multiple grounds cannot cause a short circuit. Channel 2 measure the output voltage, with it's positive probe placed at $-V_o$. Channel 3 measures $I_o$, with it's probe placed between the $1\Omega$ and $47\Omega$ resistors. Measuring the voltage over the $1\Omega$ resistor is equivalent to measuring current as $V=IR$. Channel 4 measures the positive trigger input of $T_1$. \\ 
 
-\textit{Include plot from oscilloscope of all waveforms for a firing angle of 45°.}\\\\
+\textit{Include plot from oscilloscope of all waveforms for a firing angle of 45°.}\\
 
-TODO: Add plot.\\\\
+Channel 2 and Channel 3 show the negative output voltage and output current respectively as their ground and positive connections are inverted due to needing a common ground point for all measurements. 
+\begin{figure}[H]
+        \centering
+	\includegraphics[width=0.7\columnwidth]{Images/20250828_143455.jpg}
+	\caption{$45\degree$ firing angle}
+	\label{fig:45 degree firing angle}
+\end{figure}
 
-\textit{Comment on the observed waveforms and on how they changed with firing angle, describing your observations by considering theory of the circuit operation.}\\\\
+\textit{Comment on the observed waveforms and on how they changed with firing angle, describing your observations by considering theory of the circuit operation.}\\
+
+As the firing angle is increased to $180\degree$ the output voltage and current approach the full wave rectified input waveform shown by Channel 1. This is beaus at a firing angle of $180\degree$ the thyristor acts the same as a typical diode used in a full wave rectifier.\\
+
+\textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings}\\
 
 
-\textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings}\\\\
 
-\textit{Based on your observation, at what firing angle did you observe there to first be a boundary between continuous and discontinuous conduction (of current in the load). Compare to what you might expect from a theoretical view point?}\\\\
+\textit{Based on your observation, at what firing angle did you observe there to first be a boundary between continuous and discontinuous conduction (of current in the load). Compare to what you might expect from a theoretical view point?}\\
 
-\textit{Describe the purpose of the freewheeling diode in this circuit and what you think might happen if it were removed.}\\\\
+The data suggests that the rectifier is is discontinuous conduction mode until approximately $50\degree$ as the average output current is very low suggesting the current drops to zero for parts of the cycle. Above $60\degree$ the output current increases significantly as $\alpha$ increases confirming the current is in continuous conduction mode.\\
+Theoretically current should be continuous as long as long as the firing time is long enough for the inductor to store energy to prevent zero current between firing pulses. This means that discontinuous current is expected for low values of $\alpha$ as seen through the measurements.\\
+
+\textit{Describe the purpose of the freewheeling diode in this circuit and what you think might happen if it were removed.}\\
 
 \section{Reflection}
 
