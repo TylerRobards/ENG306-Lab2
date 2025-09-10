@@ -156,7 +156,7 @@ As the firing angle is increased to $180\degree$ the output voltage and current 
 
 \textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings}\\
 
-
+TODO: This section seems hard\\
 
 \textit{Based on your observation, at what firing angle did you observe there to first be a boundary between continuous and discontinuous conduction (of current in the load). Compare to what you might expect from a theoretical view point?}\\
 
@@ -165,8 +165,12 @@ Theoretically current should be continuous as long as long as the firing time is
 
 \textit{Describe the purpose of the freewheeling diode in this circuit and what you think might happen if it were removed.}\\
 
+The freewheeling diode provided a safe path for current to flow when the AC input voltage reverse polarity or if the thyristors are turned off. The inductor inherently opposes and sudden current change so a path is required to allow for a gradual decay. This prevents damage to components due to large voltage spikes across the thyristors. It also improves the rectifiers performance by reducing output voltage ripple and smoothing the load current.\\
+If the freewheeling diode where to be removed the inductor current would have no alternate discharge paths, leading to discontinuous conduction, higher output ripple and potentially cause damage to the thyristors due to the inductor's stored energy.
+
 \section{Reflection}
 
+TODO: 
 
 \vfill
 \hrule
