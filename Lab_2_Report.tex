@@ -117,7 +117,7 @@ DC Current (mA) & 338 & 375\\
 \end{tabular}
 \end{table}
 
-The theoretical results are greater than the measured results, this is probably due to measurements and setup errors. However, it could also be due to not considering the losses in the diodes when calculating the voltage and current.
+Looking at Table \ref{tab:table2} it can be seen that the theoretical results are greater than the measured results, this is probably due to measurements and setup errors. However, it could also be due to not considering the losses in the diodes when calculating the voltage and current.
 
 \textit{For the resistive and inductive load, plot (using data saved from the oscilloscope) or insert
 screenshots or sketch by hand, waveforms for $v_s$, $v_o$, $i_o$ and $v_D$ for the two diodes measured, using
@@ -128,7 +128,8 @@ discuss your observations, including comparing against what was observed for res
 \includegraphics[width=.9\linewidth]{20250828_133520.jpg}
 \caption{\(V_s\), \(V_o\) and \(I_o\) for a full-wave rectifier with resistive and inductive load \label{fig:figure3}}
 \end{center}
-The voltage across the load is a DC voltage with ripple. This is because the inductor in the load stores energy (from current) and outputs current when the input current is negative. This results in the output voltage rising and reaching a steady state DC voltage with ripple.
+
+The voltage across the load is a DC voltage with ripple, this can be seen in Figure \ref{fig:figure3}. This is because the inductor in the load stores energy (from current) and outputs current when the input current is negative. This results in the output voltage rising and reaching a steady state DC voltage with ripple.
 
 The DC ripple for the inductive case is much less than the DC ripple in the purely resistive case. As mentioned this is because the inductor stores energy and releases it when necacary, creating a DC voltage.
 
@@ -138,7 +139,7 @@ The DC ripple for the inductive case is much less than the DC ripple in the pure
 \caption{Voltage accross diodes \(D_2\) and \(D_3\). Note: \(D_3\) is the negative voltage \label{fig:figure4}}
 \end{figure}
 
-From the two diode voltages we can see how the rectifier works. When the source voltage is positive the voltage accross \(D_3\) is zero and the voltage accross \(D_2\) is the source voltage. And vice versa for negative voltages, this results in a full-wave rectified voltage at the output. If the voltage accross \(D_1\) and \(D_4\) were recorded we would expect that \(D_1 = D_2\) and \(D_3 = D_4\).
+In Figure \ref{fig:figure4} it can seen how the rectifier works. When the source voltage is positive the voltage accross \(D_3\) is zero and the voltage accross \(D_2\) is the source voltage. And vice versa for negative voltages, this results in a full-wave rectified voltage at the output. If the voltage accross \(D_1\) and \(D_4\) were recorded we would expect that \(D_1 = D_2\) and \(D_3 = D_4\).
 
 \textit{Present your measured average (dc) and rms values of output voltage and current (for RL load).
 How do they compare to the values measured for the resistive load only and why?}\\
@@ -161,11 +162,9 @@ Comparing Table \ref{tab:table2} and \ref{tab:table3} it can be seen that the DC
 are a few approaches you can take here, some which may require you to think about and perform
 some more measurements in the lab.}\\
 
-
 Diodes experience three types of losses, forward power loss \(P_F\), reverse power loss \(P_R\) and reverse recovery loss \(P_{RR}\) :TODO ADD REFFERENCE HERE https://fscdn.rohm.com/en/products/databook/applinote/discrete/diodes/power_loss_and_thermal_design_of_diodes_an-e.pdf:. The losses are equal for each diode, so we only need to calculate the loss for one cycle and then multiply the result by four.
 
-
-First lets calculate the forward losses:
+First lets calculate the forward losses, using data from :TODO REFERENCE https://www.alldatasheet.com/datasheet-pdf/pdf/58864/DIODES/6A10.html: and Table \ref{tab:table3}.
 \begin{align*}
 P_F &= V_F\cdot I_F \\
 P_F &= V_F\cdot \frac{I_{DC}}{2} \\
@@ -173,7 +172,7 @@ P_F &= 0.95\cdot \frac{332\cdot 10^{-3}}{2} \\
 P_F &= 0.1577\ W
 \end{align*}
 
-Next lets calculate the reverse losses:
+Next lets calculate the reverse losses, using data from Table \ref{tab:table3}.
 \begin{align*}
 P_R &= V_R\cdot I_R \\
 P_R &= \frac{V_D}{2}\cdot \frac{I_{DC}}{2} \\
@@ -183,7 +182,7 @@ P_R &= 1.1537\ W
 
 Lastly the reverse recovery loss, which would be calculated using \(P_{RR} = \frac{1}{6}V_RI_{RM}t_{rr}f\), however we did not find \(I_{RM}\). Although \(P_{RR}\) would be minimal because \(t_{rr} \approx 1\ \mu s}\) and \(I_{RM}\) would be measured in micro amps. Hence \(P_{RR}\) would have very little effect on the overall power loss of the rectifier.
 
-Now we can calculate the efficency of the rectifier.
+Now we can calculate the efficiency of the rectifier, using data from the previous calculations and from Table \ref{tab:table3}.
 \begin{align*}
 P_L &= 4\cdot P_F + 4\cdot P_R \\
 P_L &= 4\cdot 0.16 + 4\cdot 1.15 \\
