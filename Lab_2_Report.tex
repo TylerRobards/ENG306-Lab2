@@ -11,6 +11,8 @@
 \usepackage{array}
 \usepackage[none]{hyphenat} % Disable Hypens splitting words across lines
 \usepackage{gensymb} 
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{references.bib}
 
 \begin{document}
 \begin{center}
@@ -66,7 +68,7 @@ DC Voltage (V) & 9.6 & 9.0\\
 DC Current (mA) & 157 & 188\\
 \hline
 \end{tabular}
-\end{table}
+\end{table}\\
 
 \subsection{Full-Wave Rectifier with Resistive and Inductive Load}
 \textit{Why was it necessary to measure the rectifier supply voltage waveform using the oscilloscope
@@ -164,9 +166,9 @@ Comparing Table \ref{tab:table2} and \ref{tab:table3} it can be seen that the DC
 are a few approaches you can take here, some which may require you to think about and perform
 some more measurements in the lab.}\\
 
-Diodes experience three types of losses, forward power loss \(P_F\), reverse power loss \(P_R\) and reverse recovery loss \(P_{RR}\) :TODO ADD REFFERENCE HERE https://fscdn.rohm.com/en/products/databook/applinote/discrete/diodes/power_loss_and_thermal_design_of_diodes_an-e.pdf:. The losses are equal for each diode, so we only need to calculate the loss for one cycle and then multiply the result by four.
+Diodes experience three types of losses, forward power loss \(P_F\), reverse power loss \(P_R\) and reverse recovery loss \(P_{RR}\) (\cite{DiodeEquations}). The losses are equal for each diode, so we only need to calculate the loss for one cycle and then multiply the result by four.
 
-First lets calculate the forward losses, using data from :TODO REFERENCE https://www.alldatasheet.com/datasheet-pdf/pdf/58864/DIODES/6A10.html: and Table \ref{tab:table3}.\\
+First lets calculate the forward losses, using data from (\cite{6A10DataSheet}) and Table \ref{tab:table3}.\\
 \begin{align*}
 P_F &= V_F\cdot I_F \\
 P_F &= V_F\cdot \frac{I_{DC}}{2} \\
@@ -324,6 +326,11 @@ If the freewheeling diode where to be removed the inductor current would have no
 \section{Reflection}
 
 TODO: 
+\newpage
+
+
+\bibliographystyle{plain}  % or abbrv, unsrt, ieeetr, apalike, etc.
+\bibliography{references}  % matches the .bib file name
 
 \vfill
 \hrule
