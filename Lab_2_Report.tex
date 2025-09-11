@@ -65,7 +65,7 @@ How do they compare to the values measured for the resistive load only and why?}
 are a few approaches you can take here, some which may require you to think about and perform
 some more measurements in the lab.}\\
 \subsection{Full-Wave Rectifier with Capacitive Output Filter and Resistive Load}
-\textit{Tabulate, to allow for easy comparison, your measured dc output voltage and peak-to-peak ripple for each of the three capacitors values}\\\\
+\textit{Tabulate, to allow for easy comparison, your measured dc output voltage and peak-to-peak ripple for each of the three capacitors values}\\
 
 \begin{center}
 	\begin{tabular}{|c|c|c|}
@@ -82,37 +82,43 @@ some more measurements in the lab.}\\
 \end{center}
 
 \textit{Carefully plot (using data saved from the oscilloscope) or sketch by hand on one graph the output voltage waveform observed for each of the three capacitor values. Comment on how and why the
-waveforms and measurements differ with changing capacitor value.}\\\\
+waveforms and measurements differ with changing capacitor value.}\\
 
-TODO: Comments on the plots
+These plots show how the capacitive output filter effects the output voltage and current waveforms. As the capacitor size increases the smoothing effect also increases. This is because the time for the capacitor to charge and discharge also changes. As the AC input increases the capacitor charges, then as the input is negative the capacitor discharges. The time constant $\tau=R_LC$ effects the charging time of the capacitor, appearing in the plots as more ripple in the output voltage with the smaller capacitor values.\\
 \begin{figure}[H]
         \centering
 	\includegraphics[width=0.7\columnwidth]{Images/20250828_134829.jpg}
-	\caption{$470\:F$ Capacitor Plot}
+	\caption{$470\:\mu F$ Capacitor Plot}
 	\label{fig:470F Cap Plot}
 \end{figure}
 \begin{figure}[H]
         \centering
 	\includegraphics[width=0.7\columnwidth]{Images/20250828_135102.jpg}
-	\caption{$1000\:F$ Capacitor Plot}
+	\caption{$1000\:\mu F$ Capacitor Plot}
 	\label{fig:1000F Cap Plot}
 \end{figure}
 \begin{figure}[H]
         \centering
 	\includegraphics[width=0.7\columnwidth]{Images/20250828_135318.jpg}
-	\caption{$2000\:F$ Capacitor Plot}
+	\caption{$2000\:\mu F$ Capacitor Plot}
 	\label{fig:2000F Cap Plot}
 \end{figure}
 
 
-\textit{Develop an approximate expression for percentage peak-to-peak ripple as a function of R, C and
-frequency $f$, stating carefully any assumptions. How do your calculated values, using your derived
-expression, compare to your measurements?}\\
+\textit{Develop an approximate expression for percentage peak-to-peak ripple as a function of R, C and frequency $f$, stating carefully any assumptions. How do your calculated values, using your derived expression, compare to your measurements?}\\
 
-\textit{How would you expect the value of the capacitor to impact upon supply current waveform, in
-particular on the harmonic content? Describe why you expect this?
-(Note: if you have time you may wish to think of a way to measure and display the Fourier
-components of supply current for your circuit, thus gaining extra insight}\\
+Using the capacitor discharge over on ripple period the percentage peak-to-peak ripple can be calculated.
+$$\Delta\approx\dfrac{V_{DC}}{R_LC}\cdot\dfrac{1}{2f}$$
+$$r_{pp}(\%)\approx\dfrac{100}{2fR_LC}$$
+Comparing this to the measured results with the $1000\:\mu F$ capacitor.
+$$r_{pp,calc}(\%)\approx\dfrac{100}{2*50*48*1000*10^{-6}}=20.83\%$$
+$$r_{pp,measured}(\%)\approx18.2\%$$
+This expression is a good approximation to the peak-to-peak ripple measured on the plot.\\
+
+\textit{How would you expect the value of the capacitor to impact upon supply current waveform, in particular on the harmonic content? Describe why you expect this? (Note: if you have time you may wish to think of a way to measure and display the Fourier components of supply current for your circuit, thus gaining extra insight}\\
+
+Increasing the capacitance makes the rectifier's output ripple smaller, but it also makes the supply current more impulsive. As the capacitor size increases the Total Harmonic Distortion also increase. This leads to the distortion power factor deteriorating, also worsening the overall power factor. This also means there are more harmonics. The harmonic currents only affect the RMS current without increasing the real power so the power factor decreases.\\ 
+
 \section{Thyristor Controller Rectifiers}
 \subsection{Semi-Converter with Resistive and Inductive Load}
 \begin{center}
@@ -160,7 +166,7 @@ Channel 2 and Channel 3 show the negative output voltage and output current resp
 
 As the firing angle is increased to $180\degree$ the output voltage and current approach the full wave rectified input waveform shown by Channel 1. This is beaus at a firing angle of $180\degree$ the thyristor acts the same as a typical diode used in a full wave rectifier.\\
 
-\textit{From your measured data, create a plot of dc output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings.}\\
+\textit{From your measured data, create a plot of DC output voltage vs firing angle. Also include in the plot a curve based on theoretical considerations for this circuit. Discuss your findings.}\\
 
 \begin{figure}[H]
         \centering
